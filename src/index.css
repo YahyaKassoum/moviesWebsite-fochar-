@@ -1,13 +1,45 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Add flag icons next to the language names using a pseudo-element */
+.goog-te-combo option[value="en"]:before {
+    content: url("https://flagcdn.com/w20/us.png");
+    margin-right: 8px;
+  }
+  .goog-te-combo option[value="es"]:before {
+    content: url("https://flagcdn.com/w20/es.png");
+    margin-right: 8px;
+  }
+  /* Hide the Google Translate toolbar */
+body > .skiptranslate {
+    position: absolute;
+    transform: translateX(-100px);top: 20%;
+
+    display:none !important;
+    height: 0 !important;
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: blue !important;
+    
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* Adjust body padding/margin to remove space created by the hidden bar */
+
+/* Disable text selection on hover */
+.goog-te-text-highlight {
+    display: none !important;
+    opacity: 10%;
+  }
+  
+  /* Optional: You can also stop the user from selecting text altogether */
+  body {
+    user-select: none !important;
+  }
+  /* Hide Google Translate toolbar */
+body > .goog-te-banner-frame {
+    display: none !important;
+    opacity: 10%;
+  }
+  
+  /* Adjust body margin to compensate for the removed toolbar */
